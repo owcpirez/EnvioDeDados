@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envio de Informações // Formulário Moderno</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fundo com gradiente sutil moderno -->
+  <div class="background-decorations">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="page-container">
+    <div class="form-card">
+      
+      <!-- Cabeçalho do Card -->
+      <header class="card-header">
+        <div class="header-badge">
+          <svg class="badge-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          <span>Comunicação Direta</span>
+        </div>
+        <h1 class="header-title">Envio de Informações</h1>
+        <p class="header-subtitle">Preencha os dados abaixo para gerar e encaminhar as informações formatadas diretamente por e-mail.</p>
+      </header>
+
+      <!-- Formulário Principal -->
+      <form id="contact-form" novalidate autocomplete="off">
+        
+        <div class="form-grid">
+          
+          <!-- Campo: Nome Completo -->
+          <div class="form-group full-width">
+            <label for="nome" class="form-label">Nome Completo <span class="required">*</span></label>
+            <div class="input-container">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva Oliveira" required>
+            </div>
+            <span class="field-error" id="err-nome">Por favor, informe seu nome completo.</span>
+          </div>
+
+          <!-- Campo: Telefone -->
+          <div class="form-group">
+            <label for="telefone" class="form-label">Telefone / WhatsApp <span class="required">*</span></label>
+            <div class="input-container">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <input type="tel" id="telefone" name="telefone" placeholder="(11) 98765-4321" maxlength="15" required>
+            </div>
+            <span class="field-error" id="err-telefone">Insira um telefone válido com DDD.</span>
+          </div>
+
+
+          <!-- Campo: Endereço -->
+          <div class="form-group full-width">
+            <label for="endereco" class="form-label">Endereço Completo <span class="required">*</span></label>
+            <div class="input-container">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <input type="text" id="endereco" name="endereco" placeholder="Rua, número, complemento, bairro, cidade e UF" required>
+            </div>
+            <span class="field-error" id="err-endereco">Por favor, forneça o endereço.</span>
+          </div>
+
+          <!-- Campo: Observações -->
+          <div class="form-group full-width">
+            <div class="label-with-counter">
+              <label for="observacoes" class="form-label">Observações</label>
+              <span class="counter"><span id="char-count">0</span> / 500</span>
+            </div>
+            <div class="input-container textarea-container">
+              <textarea id="observacoes" name="observacoes" rows="4" maxlength="500" placeholder="Insira quaisquer detalhes adicionais, observações importantes ou orientações..."></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Ações do Formulário -->
+        <div class="form-actions">
+          <button type="button" id="btn-clear" class="btn btn-secondary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"></path>
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+            </svg>
+            <span>Novo Envio</span>
+          </button>
+
+          <button type="submit" id="btn-submit" class="btn btn-primary">
+            <span class="btn-spinner hidden" id="btn-spinner"></span>
+            <svg class="btn-icon" id="btn-send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span id="btn-label">Enviar por E-mail</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Rodapé discreto -->
+      <footer class="card-footer">
+        <div class="footer-security">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Seus dados são protegidos e enviados diretamente via aplicativo de e-mail.</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <div class="toast-icon" id="toast-icon">
+      <svg viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+      </svg>
+    </div>
+    <div class="toast-content">
+      <h4 id="toast-title" class="toast-title">Sucesso</h4>
+      <p id="toast-message" class="toast-message">Mensagem do aviso aqui.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
